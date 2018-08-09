@@ -11,10 +11,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "Article")
 @Inheritance(strategy = InheritanceType.JOINED)
-public class TypeObjet {
+public abstract class Article {
 
 	// Attributs - Colonnes
 	@Id

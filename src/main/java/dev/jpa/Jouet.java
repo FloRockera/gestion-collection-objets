@@ -2,26 +2,16 @@ package dev.jpa;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Table;
 
 @Entity
-@Table(name = "jouet")
-public class Jouet extends TypeObjet {
-
-	// Attributs - Colonnes
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "REF")
-	private Integer reference;
+public class Jouet extends Article {
 
 	// Categorie pour différencier les types d'objets
-	@Column(name = "CATEGORIE")
-	@Enumerated(EnumType.ORDINAL)
-	private CategorieObjet categObjet;
+	// @Column(name = "CATEGORIE")
+	// @Enumerated(EnumType.ORDINAL)
+	// private CategorieObjet categObjet;
 
+	// Attributs - Colonnes
 	@Column(name = "NOM")
 	private String nom;
 
@@ -32,14 +22,6 @@ public class Jouet extends TypeObjet {
 	private String categ;
 
 	// Getters & Setters
-	public Integer getReference() {
-		return reference;
-	}
-
-	public void setReference(Integer reference) {
-		this.reference = reference;
-	}
-
 	public String getNom() {
 		return nom;
 	}
@@ -64,20 +46,28 @@ public class Jouet extends TypeObjet {
 		this.categ = categ;
 	}
 
-	// Methode toString
-	@Override
-	public String toString() {
-		return "Jouet [reference=" + reference + ", nom=" + nom + ", fabriquant=" + fabriquant + ", categ=" + categ
-				+ "]";
-	}
-
-	public Jouet(Integer reference, CategorieObjet categObjet, String nom, String fabriquant, String categ) {
+	// Constructeur
+	public Jouet(String nom, String fabriquant, String categ) {
 		super();
-		this.reference = reference;
-		this.categObjet = categObjet;
 		this.nom = nom;
 		this.fabriquant = fabriquant;
 		this.categ = categ;
+	}
+
+	// Constructeur vide JPA
+	public Jouet() {
+		super();
+	}
+
+	public Jouet(int ref, String nom2, String fab, String categ2, String annee, String prix, String lieu,
+			String dateAchatFormatV, String etat, String cote) {
+		// TODO Auto-generated constructor stub
+	}
+
+	// Methode toString
+	@Override
+	public String toString() {
+		return "Jouet [nom=" + nom + ", fabriquant=" + fabriquant + ", categ=" + categ + "]";
 	}
 
 }

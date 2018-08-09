@@ -6,7 +6,7 @@ public enum CategorieObjet {
 	JOUET("Jouet"), VINYL("Vinyl"), LIVRE("Livre");
 
 	// Attribut
-	private String categObjet;
+	public String categObjet;
 
 	// Getters & Setters
 	public String getCategObjet() {

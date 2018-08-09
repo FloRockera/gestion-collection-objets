@@ -1,46 +1,26 @@
 package dev.jpa;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Table;
 
 @Entity
-@Table(name = "vinyl")
-public class Vinyl extends TypeObjet {
+public class Vinyl extends Article {
 
 	// Attributs - Colonnes
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "REF")
-	private Integer reference;
 
-	// Categorie pour différencier les types d'objets
-	@Column(name = "CATEGORIE")
-	@Enumerated(EnumType.ORDINAL)
-	private CategorieObjet categObjet;
+	// // Categorie pour différencier les types d'objets
+	// @Enumerated(EnumType.ORDINAL)
+	// private CategorieObjet categObjet;
 
-	@Column(name = "TITRE")
 	private String titre;
 
-	@Column(name = "AUTEUR")
 	private String auteur;
 
-	@Column(name = "FORMAT")
 	@Enumerated(EnumType.ORDINAL)
 	private FormatObjet formatObjet;
 
 	// Getters & Setters
-	public Integer getReference() {
-		return reference;
-	}
-
-	public void setReference(Integer reference) {
-		this.reference = reference;
-	}
-
 	public String getTitre() {
 		return titre;
 	}
@@ -65,11 +45,28 @@ public class Vinyl extends TypeObjet {
 		this.formatObjet = formatObjet;
 	}
 
+	// Constructeur
+	public Vinyl(String titre, String auteur, FormatObjet formatObjet) {
+		super();
+		this.titre = titre;
+		this.auteur = auteur;
+		this.formatObjet = formatObjet;
+	}
+
+	// Constructeur vide JPA
+	public Vinyl() {
+		super();
+	}
+
+	public Vinyl(int ref, String titre2, String auteur2, String format, String prix, String lieu,
+			String dateAchatFormatV, String etat, String cote) {
+		// TODO Auto-generated constructor stub
+	}
+
 	// Methode toString
 	@Override
 	public String toString() {
-		return "Vinyl [reference=" + reference + ", titre=" + titre + ", auteur=" + auteur + ", formatObjet="
-				+ formatObjet + "]";
+		return "Vinyl [titre=" + titre + ", auteur=" + auteur + ", formatObjet=" + formatObjet + "]";
 	}
 
 }
