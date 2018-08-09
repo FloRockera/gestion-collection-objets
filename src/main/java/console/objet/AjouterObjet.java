@@ -17,13 +17,14 @@ public class AjouterObjet extends MenuService {
 	public void executeUC(Scanner scan, IObjetDao dao) throws SaveObjectException {
 
 		System.out.println("Ajout d'un nouvel objet à votre collection");
-		System.out.println("Veuillez sélectionner le type d'objet à insérer :\n 1) JOUET, \n 2) VINYL, \n 3)LIVRE");
+		System.out.println("Veuillez sélectionner le type d'objet à insérer :\n 1. JOUET \n 2. VINYL \n 3. LIVRE");
 		int typeCateg = scan.nextInt();
 
 		// CategorieObjet etat = new CategorieObjet();
 
 		// si l'utilisateur rentre un nouveau JOUET
 		if (typeCateg == 1) {
+			System.out.println("VOUS ETES DANS LA CATEGORIE JOUET ANCIEN");
 			System.out.println("Veuillez saisir la référence : ");
 			int ref = scan.nextInt();
 			System.out.println("Veuillez saisir le nom : ");
@@ -43,8 +44,15 @@ public class AjouterObjet extends MenuService {
 			DateTimeFormatter formatterV = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 			LocalDate localDateV = LocalDate.parse(date, formatterV);
 			String dateAchatFormatV = formatterV.format(localDateV);
-			System.out.println("Veuillez saisir l'état :\n EXCELLENT \nTRES_BON \nBON \nMOYEN \nABIME ");
-			String etat = scan.next();
+
+			String etat;
+			do {
+				System.out.println(
+						"Veuillez saisir l'état parmi les suivants :\nEXCELLENT \nTRES_BON \nBON \nMOYEN \nABIME ");
+				etat = scan.next();
+			} while (!etat.equals("EXCELLENT") && !etat.equals("TRES_BON") && !etat.equals("BON")
+					&& !etat.equals("MOYEN") && !etat.equals("ABIME"));
+
 			System.out.println("Veuillez saisir la côte de l'objet : ");
 			String cote = scan.next();
 			// Nouveau JOUET
@@ -53,6 +61,7 @@ public class AjouterObjet extends MenuService {
 
 			// si l'utilisateur rentre un nouveau VINYL
 		} else if (typeCateg == 2) {
+			System.out.println("VOUS ETES DANS LA CATEGORIE VINYL");
 			System.out.println("Veuillez saisir la référence : ");
 			int ref = scan.nextInt();
 			System.out.println("Veuillez saisir le titre : ");
@@ -70,8 +79,15 @@ public class AjouterObjet extends MenuService {
 			DateTimeFormatter formatterV = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 			LocalDate localDateV = LocalDate.parse(date, formatterV);
 			String dateAchatFormatV = formatterV.format(localDateV);
-			System.out.println("Veuillez saisir l'état :\n EXCELLENT \nTRES_BON \nBON \nMOYEN \nABIME ");
-			String etat = scan.next();
+
+			String etat;
+			do {
+				System.out.println(
+						"Veuillez saisir l'état parmi les suivants :\nEXCELLENT \nTRES_BON \nBON \nMOYEN \nABIME ");
+				etat = scan.next();
+			} while (!etat.equals("EXCELLENT") && !etat.equals("TRES_BON") && !etat.equals("BON")
+					&& !etat.equals("MOYEN") && !etat.equals("ABIME"));
+
 			System.out.println("Veuillez saisir la côte de l'objet : ");
 			String cote = scan.next();
 			// Nouveau VINYL
@@ -80,6 +96,7 @@ public class AjouterObjet extends MenuService {
 
 			// si l'utilisateur rentre un nouveau LIVRE
 		} else if (typeCateg == 3) {
+			System.out.println("VOUS ETES DANS LA CATEGORIE LIVRE");
 			System.out.println("Veuillez saisir la référence : ");
 			int ref = scan.nextInt();
 			System.out.println("Veuillez saisir le titre : ");
@@ -99,8 +116,15 @@ public class AjouterObjet extends MenuService {
 			DateTimeFormatter formatterV = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 			LocalDate localDateV = LocalDate.parse(date, formatterV);
 			String dateAchatFormatV = formatterV.format(localDateV);
-			System.out.println("Veuillez saisir l'état :\n EXCELLENT \nTRES_BON \nBON \nMOYEN \nABIME ");
-			String etat = scan.next();
+
+			String etat;
+			do {
+				System.out.println(
+						"Veuillez saisir l'état parmi les suivants :\nEXCELLENT \nTRES_BON \nBON \nMOYEN \nABIME ");
+				etat = scan.next();
+			} while (!etat.equals("EXCELLENT") && !etat.equals("TRES_BON") && !etat.equals("BON")
+					&& !etat.equals("MOYEN") && !etat.equals("ABIME"));
+
 			System.out.println("Veuillez saisir la côte de l'objet : ");
 			String cote = scan.next();
 			// Nouveau LIVRE
@@ -111,6 +135,7 @@ public class AjouterObjet extends MenuService {
 			throw new SaveObjectException("Ceci n'est pas une catégorie valable");
 		}
 
+		scan.close();
 	}
 
 }

@@ -19,10 +19,14 @@
 
 		<properties>
 			<!-- Informations de connexion à la base de données -->
-			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/bdd_livres" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/bdd_collection_objets" />
 			<property name="javax.persistence.jdbc.user" value="root" />
 			<property name="javax.persistence.jdbc.password" value="" />
 			<property name="javax.persistence.jdbc.driver" value="org.mariadb.jdbc.Driver" />
+			<property name="javax.persistence.schema-generation.database.action"
+				value="drop-and-create" />
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+			<property name="hibernate.archive.autodetection" value="" />
 
 			<!-- log dans la console des requêtes SQL générées par JPA -->
 			<property name="hibernate.show_sql" value="true" />
