@@ -1,5 +1,6 @@
 package console.objet;
 
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
@@ -14,7 +15,7 @@ import dev.jpa.Vinyl;
 public class AjouterObjet extends MenuService {
 
 	@Override
-	public void executeUC(Scanner scan, IObjetDao dao) throws SaveObjectException {
+	public void executeUC(Scanner scan, IObjetDao dao) throws SQLException, Exception {
 
 		System.out.println("Ajout d'un nouvel objet à votre collection");
 		System.out.println("Veuillez sélectionner le type d'objet à insérer :\n 1. JOUET \n 2. VINYL \n 3. LIVRE");
