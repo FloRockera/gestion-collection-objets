@@ -1,12 +1,14 @@
 package dao.objet;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 
 import dev.jpa.Article;
 
@@ -35,9 +37,21 @@ public class JPADao implements IObjetDao {
 	// ____________________________DEBUT DU MENU_____________________________________
 	
 	// -------------- MENU 1. INVENTAIRE DE LA COLLECTION --------------
-	
+	public ArrayList<Article> findAllArticles() throws SQLException {
+		
+		// Appel de la connection
+		connexion();
+		
+		// Requête
+		TypedQuery<Article> query = em.createQuery("SELECT a FROM Article a", Article.class);
+		ArrayList<Article> articles = (ArrayList<Article>) query.getResultList();
+		
+		// Appel de la fermeture de session
+		tearDown();
+		
+		return articles;
+	}
 
-	
 	
 	// -------------- MENU 2. SAUVEGARDER UN NOUVEL OBJET --------------
 	@Override
@@ -60,6 +74,7 @@ public class JPADao implements IObjetDao {
 	
 	// -------------- MENU 3. MODIFIER UN ARTICLE --------------
 	
+
 	
 	
 	

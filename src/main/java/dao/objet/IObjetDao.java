@@ -2,6 +2,7 @@ package dao.objet;
 
 import java.sql.SQLException;
 
+import console.objet.ArrayList;
 import dev.jpa.Article;
 
 public interface IObjetDao extends AutoCloseable {
@@ -21,4 +22,10 @@ public interface IObjetDao extends AutoCloseable {
 	// Fermeture
 	default void close() {
 	}
+
+	// Inventaire
+	ArrayList<Article> findAllArticles();
+
+	// Modifier un article
+	void updateArticle(Article newLivre);
 }

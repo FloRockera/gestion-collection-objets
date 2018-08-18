@@ -58,11 +58,6 @@ public class Vinyl extends Article {
 		super();
 	}
 
-	public Vinyl(int ref, String titre2, String auteur2, String format, String prix, String lieu,
-			String dateAchatFormatV, String etat, String cote) {
-		// TODO Auto-generated constructor stub
-	}
-
 	// Methode toString
 	@Override
 	public String toString() {

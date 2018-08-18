@@ -64,6 +64,11 @@ public class Livre extends Article {
 		super();
 	}
 
+	public Livre(String nref, String titre2, String auteur2, String editeur2, String annee, String prix, String lieu,
+			String dateAchatFormatV, String etat, String cote) {
+		// TODO Auto-generated constructor stub
+	}
+
 	public Livre(int ref, String titre2, String auteur2, String editeur2, String annee, String prix, String lieu,
 			String dateAchatFormatV, String etat, String cote) {
 		// TODO Auto-generated constructor stub
